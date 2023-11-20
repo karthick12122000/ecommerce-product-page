@@ -68,7 +68,7 @@ header nav a:hover::after {
 header nav :is(svg, img) {
   cursor: pointer;
 }
-.cart:hover path {
+.cartI:hover path {
   fill: var(--Very_dark_blue);
 }
 .profile {
@@ -88,9 +88,111 @@ header nav :is(svg, img) {
 }
 .product {
   display: flex;
+  align-items: center;
   width: 80%;
   height: 600px;
+  flex-wrap: wrap;
 }
-.product div {
+.product > div {
   width: 50%;
+}
+.thumbnail {
+  width: 420px;
+  height: 420px;
+  border-radius: 15px;
+}
+.product__subimages img {
+  width: 85px;
+  height: 85px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+.product__subimages img:hover {
+  opacity: 0.6;
+}
+.img--Active {
+  opacity: 0.5;
+  border: 2px solid var(--Orange);
+}
+.company {
+  color: var(--Orange);
+  font-weight: 700;
+}
+.pname {
+  font-size: 2rem;
+  color: var(--Black);
+  font-weight: 700;
+}
+.pdescription {
+  font-size: 1rem;
+  color: var(--Dark_grayish_blue);
+}
+.rate {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-right: 10px;
+}
+.discount {
+  color: var(--Orange);
+  background: var(--Pale_orange);
+  padding: 5px;
+  font-weight: 700;
+  border-radius: 5px;
+}
+.mrp {
+  color: var(--Grayish_blue);
+  text-decoration: line-through;
+  font-weight: 700;
+}
+.qtydiv {
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: var(--Light_grayish_blue);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.5rem;
+}
+button {
+  font-size: 1.8rem;
+  background: none;
+  cursor: pointer;
+}
+.qtydiv button {
+  color: var(--Orange);
+}
+.qtydiv button:hover {
+  opacity: 0.6;
+}
+.main__btn {
+  display: flex;
+  gap: 40px;
+}
+.cart__btn {
+  width: 230px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: var(--Orange);
+  color: var(--White);
+  box-shadow: 0px 4px 30px var(--Orange);
+}
+.cart__btn path {
+  fill: var(--White);
+}
+.cart__btn svg {
+  margin-right: 15px;
+}
+.cart__btn:hover {
+  opacity: 0.6;
+}
+.cart__details {
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  background: var(--White);
+  bottom: -200px;
+  right: 20%;
+  display: none;
 }
