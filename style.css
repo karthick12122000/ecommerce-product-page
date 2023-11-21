@@ -86,6 +86,26 @@ header nav :is(svg, img) {
   position: absolute;
   right: 0;
 }
+.cart__details {
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  background: var(--White);
+  bottom: -200px;
+  right: 20%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 15px;
+  /* display: none; */
+}
+.cart_title {
+  color: var(--Black);
+  font-weight: 700;
+  padding: 15px;
+  border-bottom: 1px solid var(--Grayish_blue);
+}
+.hamburger {
+  display: none;
+}
 .product {
   display: flex;
   align-items: center;
@@ -187,12 +207,9 @@ button {
 .cart__btn:hover {
   opacity: 0.6;
 }
-.cart__details {
-  width: 400px;
-  height: 200px;
-  position: absolute;
-  background: var(--White);
-  bottom: -200px;
-  right: 20%;
-  display: none;
+
+@media screen and (max-width: 1100px) {
+  .product > div {
+    width: 100%;
+  }
 }
