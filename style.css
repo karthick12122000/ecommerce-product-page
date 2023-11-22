@@ -68,6 +68,10 @@ header nav a:hover::after {
 header nav :is(svg, img) {
   cursor: pointer;
 }
+.cartI {
+  width: max-content;
+  height: max-content;
+}
 .cartI:hover path {
   fill: var(--Very_dark_blue);
 }
@@ -95,14 +99,25 @@ header nav :is(svg, img) {
   right: 20%;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 15px;
-  /* display: none; */
+  display: none;
 }
 .cart_title {
   color: var(--Black);
   font-weight: 700;
   padding: 15px;
+  height: 20%;
   border-bottom: 1px solid var(--Grayish_blue);
 }
+.cart_items {
+  color: var(--Dark_grayish_blue);
+  font-weight: 700;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .hamburger {
   display: none;
 }
@@ -113,9 +128,11 @@ header nav :is(svg, img) {
   height: 600px;
   flex-wrap: wrap;
 }
+
 .product > div {
   width: 50%;
 }
+
 .thumbnail {
   width: 420px;
   height: 420px;
@@ -207,9 +224,28 @@ button {
 .cart__btn:hover {
   opacity: 0.6;
 }
-
+.offcanvas {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  background: var(--White);
+}
+.show {
+  display: block;
+  z-index: 1;
+}
 @media screen and (max-width: 1100px) {
   .product > div {
     width: 100%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+  header nav a {
+    display: none;
   }
 }
