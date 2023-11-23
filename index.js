@@ -51,3 +51,42 @@ body.addEventListener("click", (event) => {
     }
   }
 });
+//////////////////////////---------------Add cart
+var cart_btn = document.querySelector(".cart__btn");
+var cart_items = document.querySelector(".cart_items");
+var rate = document.querySelector(".rate");
+
+cart_btn.addEventListener("click", () => {
+  var pImage = document.querySelector(".product__subimages").firstElementChild
+    .src;
+  var pName = document.querySelector(".pname").innerText;
+
+  var itemDiv = document.createElement("div");
+  var itemImg = document.createElement("img");
+  itemImg.setAttribute("src", pImage);
+
+  itemImg.setAttribute("alt", "Product Image");
+  itemImg.setAttribute("class", "prod_Img");
+
+  var itemName = document.createElement("span");
+  itemName.innerText = pName;
+  itemName.setAttribute("class", "prod_Name");
+  var Qty_Price_details = document.createElement("div");
+  var itemrate = document.createElement("span");
+  var itemqty = document.createElement("span");
+  var itemtotal = document.createElement("span");
+  itemrate.innerText = rate.innerText;
+  itemrate.setAttribute("Id", "prod_rate");
+  itemqty.innerText = quantity.innerText;
+  itemqty.setAttribute("Id", "prod_Qty");
+  Qty_Price_details.appendChild(itemrate);
+  Qty_Price_details.appendChild(itemqty);
+
+  cart_items.innerText = "";
+  var itemDiv = document.createElement("div");
+  itemDiv.appendChild(itemImg);
+  itemDiv.appendChild(itemName);
+  itemDiv.appendChild(Qty_Price_details);
+
+  cart_items.appendChild(itemDiv);
+});
