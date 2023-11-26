@@ -1,99 +1,124 @@
-////////////////////----cart details
-const cartDetails = document.querySelector(".cart__details");
-const cartIcon = document.querySelector(".cartI");
-const body = document.querySelector("body");
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-function toggleCartDetails() {
-  if (cartDetails.classList.contains("show")) {
-    cartDetails.classList.remove("show");
-  } else {
-    cartDetails.classList.add("show");
-  }
-}
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-cartIcon.addEventListener("click", toggleCartDetails);
+    <title>Frontend Mentor | E-commerce product page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-//////////---------------Qty
-var quantity = document.querySelector(".qty");
-var plusbtn = document.querySelector(".plus");
-var minusbtn = document.querySelector(".minus");
+  <body>
+    <header>
+      <nav class="text-Orange-500">
+        <img class="hamburger" src="./images/icon-menu.svg" alt="hamburger" />
 
-plusbtn.addEventListener("click", () => {
-  quantity.innerText = Number(quantity.innerText) + 1;
-});
-minusbtn.addEventListener("click", () => {
-  if (Number(quantity.innerText) > 1) {
-    quantity.innerText = Number(quantity.innerText) - 1;
-  }
-});
+        <img src="./images/logo.svg" alt="logo" />
+        <a href="">Collections</a>
+        <a href="">Men</a>
+        <a href="">Women</a>
+        <a href="">About</a>
+        <a href="">Contact</a>
+        <div class="rightpanel">
+          <svg
+            width="22"
+            height="20"
+            class="cartI"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+              fill="#69707D"
+              fill-rule="nonzero"
+            />
+          </svg>
+          <div class="cart__details">
+            <div class="cart_title">Cart</div>
+            <div class="cart_items">Your cart is empty</div>
+          </div>
+          <img class="profile" src="./images/image-avatar.png" alt="logo" />
+        </div>
+      </nav>
+      <div class="offcanvas"></div>
+    </header>
+    <section class="product">
+      <div class="product__image">
+        <img
+          class="thumbnail"
+          src="./images/image-product-1.jpg"
+          alt="Product image"
+        />
+        <br />
+        <br />
 
-/////-----------------nav bar
-var hamburger = document.querySelector(".hamburger");
-var offcanvas = document.querySelector(".offcanvas");
-hamburger.addEventListener("click", () => {
-  console.log(window.innerHeight);
-  offcanvas.classList.add("show");
-  offcanvas.style = "height:" + window.innerHeight + "px";
-});
-//////////////-----------close all popup
-body.addEventListener("click", (event) => {
-  if (
-    event.target.classList.contains("cartI") === false &&
-    event.target.classList.contains("cart__details") === false &&
-    event.target.classList.contains("offcanvas") === false &&
-    event.target.classList.contains("hamburger") === false
-  ) {
-    if (cartDetails.classList.contains("show")) {
-      cartDetails.classList.remove("show");
-    }
-    if (offcanvas.classList.contains("show")) {
-      offcanvas.classList.remove("show");
-    }
-  }
-});
-//////////////////////////---------------Add cart
-var cart_btn = document.querySelector(".cart__btn");
-var cart_items = document.querySelector(".cart_items");
-var rate = document.querySelector(".rate").innerText;
+        <div class="product__subimages">
+          <img
+            class="img--Active"
+            src="./images/image-product-1-thumbnail.jpg"
+            alt=""
+          />
+          <img src="./images/image-product-2-thumbnail.jpg" alt="" />
+          <img src="./images/image-product-3-thumbnail.jpg" alt="" />
+          <img src="./images/image-product-4-thumbnail.jpg" alt="" />
+        </div>
+      </div>
 
-cart_btn.addEventListener("click", () => {
-  var pImage = document.querySelector(".product__subimages").firstElementChild
-    .src;
-  var pName = document.querySelector(".pname").innerText;
+      <div class="product__details">
+        <p class="company">SNEAKER COMPANY</p>
+        <h1 class="pname">Fall Limited Edition Sneakers</h1>
+        <p class="pdescription">
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
+        <span class="rate">$125.00 </span><span class="discount">50%</span>
+        <p class="mrp">$250.00</p>
+        <div class="main__btn">
+          <div class="qtydiv">
+            <button class="minus">-</button>
+            <span class="qty">1</span>
+            <button class="plus">+</button>
+          </div>
+          <button class="cart__btn">
+            <svg
+              width="22"
+              height="20"
+              class="cart"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                fill="#69707D"
+                fill-rule="nonzero"
+              />
+            </svg>
 
-  var itemDiv = document.createElement("div");
-  var itemImg = document.createElement("img");
-  itemImg.setAttribute("src", pImage);
+            <span>Add to cart </span>
+          </button>
+        </div>
+      </div>
+    </section>
 
-  itemImg.setAttribute("alt", "Product Image");
-  itemImg.setAttribute("class", "prod_Img");
-  var proDetails = document.createElement("div");
-  var itemName = document.createElement("span");
-  itemName.innerText = pName;
-  itemName.setAttribute("class", "prod_Name");
-  var Qty_Price_details = document.createElement("div");
-  var itemrate = document.createElement("span");
-  var itemqty = document.createElement("span");
-  var itemtotal = document.createElement("span");
-
-  itemrate.innerText = rate;
-  itemrate.setAttribute("Id", "prod_rate");
-  itemqty.innerText = quantity.innerText +" * ";
-  itemqty.setAttribute("Id", "prod_Qty");
-   console.log(rate);
-  var rateV=rate.slice(2);
-  console.log(rateV);
-  itemtotal.innerText=" = " +(Number(quantity)* Number(rateV));
-  Qty_Price_details.appendChild(itemrate);
-  Qty_Price_details.appendChild(itemqty);
-  Qty_Price_details.appendChild(itemtotal);
-
-
-  cart_items.innerText = "";
-  var itemDiv = document.createElement("div");
-  itemDiv.appendChild(itemImg);
-  proDetails.appendChild(itemName);
-  proDetails.appendChild(Qty_Price_details);
-itemDiv.append(proDetails);
-  cart_items.appendChild(itemDiv);
-});
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Karthick</a>.
+    </div> -->
+    <script src="./index.js"></script>
+  </body>
+</html>
