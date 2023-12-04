@@ -31,7 +31,6 @@ minusbtn.addEventListener("click", () => {
 var hamburger = document.querySelector(".hamburger");
 var offcanvas = document.querySelector(".offcanvas");
 hamburger.addEventListener("click", () => {
-  console.log(window.innerHeight);
   offcanvas.classList.add("show");
   offcanvas.style = "height:" + window.innerHeight + "px";
 });
@@ -60,14 +59,11 @@ cart_btn.addEventListener("click", () => {
   var pImage = document.querySelector(".product__subimages").firstElementChild
     .src;
   var pName = document.querySelector(".pname").innerText;
-
   var itemDiv = document.createElement("div");
   var itemImg = document.createElement("img");
   itemImg.setAttribute("src", pImage);
-
   itemImg.setAttribute("alt", "Product Image");
   itemImg.setAttribute("class", "prod_Img");
-
   var itemName = document.createElement("span");
   itemName.innerText = pName;
   itemName.setAttribute("class", "prod_Name");
@@ -75,18 +71,25 @@ cart_btn.addEventListener("click", () => {
   var itemrate = document.createElement("span");
   var itemqty = document.createElement("span");
   var itemtotal = document.createElement("span");
-  itemrate.innerText = rate.innerText;
+  itemrate.innerText = rate.innerText + " * ";
   itemrate.setAttribute("Id", "prod_rate");
-  itemqty.innerText = quantity.innerText;
+  itemqty.innerText = quantity.innerText + " = ";
   itemqty.setAttribute("Id", "prod_Qty");
+  itemtotal.innerText =
+    Number(rate.innerText.substring(1)) * Number(quantity.innerText);
+  Qty_Price_details.appendChild(itemName);
+  Qty_Price_details.appendChild(document.createElement("br"));
   Qty_Price_details.appendChild(itemrate);
   Qty_Price_details.appendChild(itemqty);
-
+  Qty_Price_details.appendChild(itemtotal);
   cart_items.innerText = "";
   var itemDiv = document.createElement("div");
   itemDiv.appendChild(itemImg);
-  itemDiv.appendChild(itemName);
   itemDiv.appendChild(Qty_Price_details);
-
   cart_items.appendChild(itemDiv);
+});
+/////////////////////////////--------------------header
+var menu = document.querySelector(".menu");
+menu.querySelectorAll("a").forEach((e) => {
+  offcanvas.appendChild(e);
 });
