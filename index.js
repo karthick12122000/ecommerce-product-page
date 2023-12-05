@@ -83,9 +83,13 @@ cart_btn.addEventListener("click", () => {
   Qty_Price_details.appendChild(itemqty);
   Qty_Price_details.appendChild(itemtotal);
   cart_items.innerText = "";
+  var deleteBtn = document.createElement("button");
+  deleteBtn.innerHTML =
+    "<img class='delete__item' src='./images/icon-delete.svg' onclick='detleteItem()' />";
   var itemDiv = document.createElement("div");
   itemDiv.appendChild(itemImg);
   itemDiv.appendChild(Qty_Price_details);
+  itemDiv.appendChild(deleteBtn);
   cart_items.appendChild(itemDiv);
 });
 /////////////////////////////--------------------header
@@ -93,3 +97,8 @@ var menu = document.querySelector(".menu");
 menu.querySelectorAll("a").forEach((e) => {
   offcanvas.appendChild(e);
 });
+///////////////////////////--------------------delete cart
+function detleteItem() {
+  cart_items.removeChild(cart_items.firstElementChild);
+  cart_items.innerText = "Your cart is empty";
+}
