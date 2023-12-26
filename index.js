@@ -102,3 +102,22 @@ function detleteItem() {
   cart_items.removeChild(cart_items.firstElementChild);
   cart_items.innerText = "Your cart is empty";
 }
+/////////////////////////////-----------------LightBox
+function openLightbox(e) {
+  if(e.classList.contains('LightBox')!=true){
+  var product__image= document.getElementById("product__image");
+  product__image.classList.add("LightBox");
+ var closebtn=document.createElement("img");
+ closebtn.setAttribute('class','closeBtn');
+ closebtn.setAttribute('onclick','closeLightbox()');
+ closebtn.setAttribute('src','./images/icon-close.svg');
+ product__image.appendChild(closebtn);
+}
+}
+///////////////////////////////------------------CloseLightBox
+function closeLightbox() {
+  var product__image= document.getElementById("product__image");
+  product__image.classList.remove("LightBox");
+ var closeBtn= document.querySelector(".closeBtn");
+closeBtn.remove();
+}
