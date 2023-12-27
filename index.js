@@ -95,7 +95,7 @@ cart_btn.addEventListener("click", () => {
 /////////////////////////////--------------------header
 var menu = document.querySelector(".menu");
 menu.querySelectorAll("a").forEach((e) => {
-  offcanvas.appendChild(e);
+  offcanvas.innerHTML+='<a herf="#" class="submenu">'+e.innerText+'</a>';
 });
 ///////////////////////////--------------------delete cart
 function detleteItem() {
@@ -111,6 +111,16 @@ function openLightbox(e) {
  closebtn.setAttribute('class','closeBtn');
  closebtn.setAttribute('onclick','closeLightbox()');
  closebtn.setAttribute('src','./images/icon-close.svg');
+ var nextbtn=document.createElement("img");
+ nextbtn.setAttribute('class','nextBtn');
+ nextbtn.setAttribute('onclick','closeLightbox()');
+ nextbtn.setAttribute('src','./images/icon-next.svg');
+ var prvbtn=document.createElement("img");
+ prvbtn.setAttribute('class','prvBtn');
+ prvbtn.setAttribute('onclick','closeLightbox()');
+ prvbtn.setAttribute('src','./images/icon-previous.svg');
+ product__image.appendChild(prvbtn);
+ product__image.appendChild(nextbtn);
  product__image.appendChild(closebtn);
 }
 }
@@ -120,4 +130,30 @@ function closeLightbox() {
   product__image.classList.remove("LightBox");
  var closeBtn= document.querySelector(".closeBtn");
 closeBtn.remove();
+var nextBtn= document.querySelector(".nextBtn");
+nextBtn.remove();
+var prvBtn= document.querySelector(".prvBtn");
+prvBtn.remove();
+}
+/////////////////////////---------------Change Preview image
+function changepreview(e) {
+ var subImgs= document.querySelector(".product__subimages")
+
+subImgs.querySelectorAll("img").forEach(e => {
+  if(e.classList.contains("img--Active")==true){
+e.classList.remove("img--Active");
+  }
+});
+    
+  
+  e.classList.add("img--Active");
+  console.log(e.dataset.image);
+  var thumbnail=document.querySelector(".thumbnail");
+  console.log(thumbnail.src);
+  thumbnail.src=e.dataset.image;
+ 
+}
+///////////////////------------------forward/backward
+function slide(action,pos) {
+  
 }
