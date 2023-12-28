@@ -113,11 +113,11 @@ function openLightbox(e) {
  closebtn.setAttribute('src','./images/icon-close.svg');
  var nextbtn=document.createElement("img");
  nextbtn.setAttribute('class','nextBtn');
- nextbtn.setAttribute('onclick','closeLightbox()');
+ nextbtn.setAttribute('onclick','slide("nxt")');
  nextbtn.setAttribute('src','./images/icon-next.svg');
  var prvbtn=document.createElement("img");
  prvbtn.setAttribute('class','prvBtn');
- prvbtn.setAttribute('onclick','closeLightbox()');
+ prvbtn.setAttribute('onclick','slide("prv")');
  prvbtn.setAttribute('src','./images/icon-previous.svg');
  product__image.appendChild(prvbtn);
  product__image.appendChild(nextbtn);
@@ -154,6 +154,23 @@ e.classList.remove("img--Active");
  
 }
 ///////////////////------------------forward/backward
-function slide(action,pos) {
-  
+var v;
+function slide(action) {
+  var subImgs= document.querySelector(".product__subimages")
+var c=0;
+  subImgs.querySelectorAll("img").forEach(e => {
+    if(e.classList.contains("img--Active")==true){
+ v=c;
+console.log(v);
+  e.classList.remove("img--Active"); 
+    }
+    if(v+1==c){
+      // console.log(v);
+      e.classList.add("img--Active");
+    }
+
+    console.log(c);
+    c+=1;
+  });
+  console.log(action);
 }
