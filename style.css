@@ -50,15 +50,18 @@ header nav {
   gap: 30px;
   position: relative;
 }
-header nav a,.submenu {
+header nav a,
+.submenu {
   color: var(--Dark_grayish_blue);
   position: relative;
   text-decoration: none;
 }
-header nav a:hover ,.submenu:hover{
+header nav a:hover,
+.submenu:hover {
   color: var(--Very_dark_blue);
 }
-header nav a:hover::after ,.submenu:hover::after{
+header nav a:hover::after,
+.submenu:hover::after {
   content: "";
   width: 100%;
   height: 5px;
@@ -260,15 +263,16 @@ button {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  opacity:1;
+  opacity: 1;
 }
 img.closeBtn {
-position: absolute;
-right: 7%;
-top: 7%;
-cursor: pointer;
+  position: absolute;
+  right: 7%;
+  top: 7%;
+  cursor: pointer;
 }
-.nextBtn,.prvBtn{
+.nextBtn,
+.prvBtn {
   width: 55px;
   height: 55px;
   padding: 18px;
@@ -276,13 +280,12 @@ cursor: pointer;
   background-color: var(--White);
   background-size: contain;
   position: absolute;
-  
 }
-.nextBtn{
+.nextBtn {
   top: 37%;
   right: 210px;
 }
-.prvBtn{
+.prvBtn {
   top: 37%;
   left: 210px;
 }
