@@ -248,7 +248,7 @@ function slide(action) {
     if (e.classList.contains("img--Active") == true) {
       v = c;
 
-      if (c + 1 < subImgs.querySelectorAll("img").length) {
+      if (c + 1 < subImgs.querySelectorAll("img").length && c >= 0) {
         e.classList.remove("img--Active");
       }
     }
@@ -257,13 +257,12 @@ function slide(action) {
 
       console.log(c);
 
-      console.log(subImgs.querySelectorAll("img")[v - 1].classList);
       if (v != null) {
         console.log(v + "v");
         // console.log(subImgs.querySelectorAll("img")[v - 1]);
-        // subImgs.querySelectorAll("img")[v - 1].classList.add("img--Active");
-        // var thumbnail = document.querySelector(".thumbnail");
-        // thumbnail.src = subImgs.querySelectorAll("img")[v - 1].dataset.image;
+        subImgs.querySelectorAll("img")[v - 1].classList.add("img--Active");
+        var thumbnail = document.querySelector(".thumbnail");
+        thumbnail.src = subImgs.querySelectorAll("img")[v - 1].dataset.image;
       }
     } else {
       if (v + 1 == c) {
