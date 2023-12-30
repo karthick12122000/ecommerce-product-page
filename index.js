@@ -174,26 +174,6 @@ function openLightbox(e) {
 
     closebtn.setAttribute("src", "./images/icon-close.svg");
 
-    var nextbtn = document.createElement("img");
-
-    nextbtn.setAttribute("class", "nextBtn");
-
-    nextbtn.setAttribute("onclick", 'slide("nxt")');
-
-    nextbtn.setAttribute("src", "./images/icon-next.svg");
-
-    var prvbtn = document.createElement("img");
-
-    prvbtn.setAttribute("class", "prvBtn");
-
-    prvbtn.setAttribute("onclick", 'slide("prv")');
-
-    prvbtn.setAttribute("src", "./images/icon-previous.svg");
-
-    product__image.appendChild(prvbtn);
-
-    product__image.appendChild(nextbtn);
-
     product__image.appendChild(closebtn);
   }
 }
@@ -208,14 +188,6 @@ function closeLightbox() {
   var closeBtn = document.querySelector(".closeBtn");
 
   closeBtn.remove();
-
-  var nextBtn = document.querySelector(".nextBtn");
-
-  nextBtn.remove();
-
-  var prvBtn = document.querySelector(".prvBtn");
-
-  prvBtn.remove();
 }
 
 /////////////////////////---------------Change Preview image
@@ -245,29 +217,28 @@ function slide(action) {
   var c = 0;
 
   subImgs.querySelectorAll("img").forEach((e) => {
-    if (e.classList.contains("img--Active") == true) {
-      v = c;
-
-      if (c + 1 < subImgs.querySelectorAll("img").length && c >= 0) {
-        e.classList.remove("img--Active");
-      }
-    }
     if (action == "prv") {
-      console.log(action);
-
-      console.log(c);
+      if (e.classList.contains("img--Active") == true) {
+        if (c > 0) {
+          v = c;
+          e.classList.remove("img--Active");
+        }
+      }
 
       if (v != null) {
-        console.log(v + "v");
-        // console.log(subImgs.querySelectorAll("img")[v - 1]);
         subImgs.querySelectorAll("img")[v - 1].classList.add("img--Active");
         var thumbnail = document.querySelector(".thumbnail");
         thumbnail.src = subImgs.querySelectorAll("img")[v - 1].dataset.image;
       }
     } else {
-      if (v + 1 == c) {
-        // console.log(v);
+      if (e.classList.contains("img--Active") == true) {
+        v = c;
 
+        if (c + 1 < subImgs.querySelectorAll("img").length) {
+          e.classList.remove("img--Active");
+        }
+      }
+      if (v + 1 == c) {
         e.classList.add("img--Active");
 
         var thumbnail = document.querySelector(".thumbnail");
@@ -277,4 +248,8 @@ function slide(action) {
     }
     c += 1;
   });
+}
+///////////////---------------close offcanvas
+function closeoffcanvas() {
+  offcanvas.classList.remove("show");
 }

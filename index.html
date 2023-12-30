@@ -53,19 +53,36 @@
           <img class="profile" src="./images/image-avatar.png" alt="logo" />
         </div>
       </nav>
-      <div class="offcanvas"></div>
+      <div class="offcanvas">
+        <img
+          class="closeBtn__Canvas"
+          onclick="closeoffcanvas()"
+          src="./images/icon-close.svg"
+        />
+      </div>
     </header>
     <section class="product">
       <div class="product__image" id="product__image">
-        <img
-          class="thumbnail"
-          src="./images/image-product-1.jpg"
-          alt="Product image"
-          onclick="openLightbox(this)"
-        />
-        <br />
-        <br />
+        <div class="thum-img">
+          <img
+            class="prvBtn"
+            onclick="slide('prv')"
+            src="./images/icon-previous.svg"
+          />
+          <img
+            class="nextBtn"
+            onclick="slide('nxt')"
+            src="./images/icon-next.svg"
+          />
 
+          <img
+            class="thumbnail"
+            src="./images/image-product-1.jpg"
+            alt="Product image"
+            onclick="openLightbox(this)"
+          />
+        </div>
+        <br />
         <div class="product__subimages">
           <img
             class="img--Active"
@@ -103,8 +120,10 @@
           Featuring a durable rubber outer sole, they’ll withstand everything
           the weather can offer.
         </p>
-        <span class="rate">$125.00 </span><span class="discount">50%</span>
-        <p class="mrp">$250.00</p>
+        <div>
+          <span class="rate">$125.00 </span><span class="discount">50%</span>
+          <p class="mrp">$250.00</p>
+        </div>
         <div class="main__btn">
           <div class="qtydiv">
             <button class="minus">-</button>
@@ -131,12 +150,15 @@
       </div>
     </section>
 
-    <!-- <div class="attribution">
+    <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Karthick</a>.
-    </div> -->
+      >. Coded by
+      <a href="https://www.linkedin.com/in/karthick-kaliannan-68b763191/"
+        >Karthick</a
+      >.
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>
